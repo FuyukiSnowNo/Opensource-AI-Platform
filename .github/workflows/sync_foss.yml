@@ -28,7 +28,7 @@ jobs:
           FOSS_REPO_DEPLOY_KEY: ${{ secrets.FOSS_REPO_DEPLOY_KEY }}
         run: |
           mkdir -p ~/.ssh
-          echo "$FOSS_REPO_DEPLOY_KEY" > ~/.ssh/id_ed25519
+          printf "%s" "$FOSS_REPO_DEPLOY_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
